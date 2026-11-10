@@ -1,0 +1,15 @@
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\projekt.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\projekt.AssemblyInfoInputs.cache
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\projekt.AssemblyInfo.cs
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\projekt.csproj.CoreCompileInputs.cache
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\projekt.sourcelink.json
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\bin\Debug\net8.0\projekt.exe
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\bin\Debug\net8.0\projekt.deps.json
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\bin\Debug\net8.0\projekt.runtimeconfig.json
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\bin\Debug\net8.0\projekt.dll
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\bin\Debug\net8.0\projekt.pdb
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\projekt.dll
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\refint\projekt.dll
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\projekt.pdb
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\projekt.genruntimeconfig.cache
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\ref\projekt.dll
