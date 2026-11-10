@@ -77,7 +77,18 @@
 
             } while (billentyu.Key != ConsoleKey.Enter);
 
-
+            if (billentyu.Key == ConsoleKey.Enter && szam == 0)
+            {
+                Console.WriteLine("Jatek");
+            }
+            if (billentyu.Key == ConsoleKey.Enter && szam == 1)
+            {
+                Console.WriteLine("Skinek");
+            }
+            if (billentyu.Key == ConsoleKey.Enter && szam == 2)
+            {
+                Console.WriteLine("Kilépés");
+            }
 
 
 
