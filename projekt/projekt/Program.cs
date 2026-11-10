@@ -87,7 +87,34 @@
             }
             if (billentyu.Key == ConsoleKey.Enter && szam == 2)
             {
-                Console.WriteLine("Kilépés");
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("Biztos hogy ki akarsz lépni? (Enter/ESC)");
+                billentyu = Console.ReadKey(true);
+                if (billentyu.Key == ConsoleKey.Enter)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("De biztos vagy benne?? (Enter/ESC)");
+                    billentyu = Console.ReadKey(true);
+                    if (billentyu.Key == ConsoleKey.Enter)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("De utána nem fogsz tudni visszalépni! Biztos ki akarsz lépni??? (Enter/ESC)");
+                        billentyu = Console.ReadKey(true);
+                        if (billentyu.Key == ConsoleKey.Enter)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Utolsó esély!!! (Enter/ESC)");
+                            billentyu = Console.ReadKey(true);
+                            if (billentyu.Key == ConsoleKey.Enter)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Gray;
+                                Console.WriteLine("Hát jó. :(");
+                                System.Threading.Thread.Sleep(500);
+                            }
+                        }
+                    }
+                }
             }
 
 
