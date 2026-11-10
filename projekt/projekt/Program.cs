@@ -2,13 +2,10 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Menu()//menu, interaktiv enterrel lepsz be fel le nyilakkal
         {
-
-            //á, é, í, ó, ö, ő, ú, ü, ű (nincs magyar kiosztasom)
-
             //menu, interaktiv enterrel lepsz be fel le nyilakkal
-
+            Console.ForegroundColor = ConsoleColor.White;
 
             Console.WriteLine(" _   _            _       _                          _            \r\n| \\ | | _____   _| |_ ___| | ___ _ __     __ _ _   _| |_ ___  ___ \r\n|  \\| |/ _ \\ \\ / / __/ _ \\ |/ _ \\ '_ \\   / _` | | | | __/ _ \\/ __|\r\n| |\\  |  __/\\ V /| ||  __/ |  __/ | | | | (_| | |_| | || (_) \\__ \\\r\n|_|_\\_|\\___| \\_/  \\__\\___|_|\\___|_| |_|  \\__,_|\\__,_|\\__\\___/|___/\r\n  (_) __ _| |_ ___| | __                                          \r\n  | |/ _` | __/ _ \\ |/ /                                          \r\n  | | (_| | ||  __/   <                                           \r\n _/ |\\__,_|\\__\\___|_|\\_\\                                          \r\n|__/                                                              ");
             System.Threading.Thread.Sleep(1000); //késleltetés
@@ -25,7 +22,7 @@
             do
             {
                 billentyu = Console.ReadKey(true);
-                if (szam == 0&& billentyu.Key == ConsoleKey.DownArrow)
+                if (szam == 0 && billentyu.Key == ConsoleKey.DownArrow)
                 {
                     Console.Clear();
                     Console.WriteLine(" _   _            _       _                          _            \r\n| \\ | | _____   _| |_ ___| | ___ _ __     __ _ _   _| |_ ___  ___ \r\n|  \\| |/ _ \\ \\ / / __/ _ \\ |/ _ \\ '_ \\   / _` | | | | __/ _ \\/ __|\r\n| |\\  |  __/\\ V /| ||  __/ |  __/ | | | | (_| | |_| | || (_) \\__ \\\r\n|_|_\\_|\\___| \\_/  \\__\\___|_|\\___|_| |_|  \\__,_|\\__,_|\\__\\___/|___/\r\n  (_) __ _| |_ ___| | __                                          \r\n  | |/ _` | __/ _ \\ |/ /                                          \r\n  | | (_| | ||  __/   <                                           \r\n _/ |\\__,_|\\__\\___|_|\\_\\                                          \r\n|__/                                                              ");
@@ -60,7 +57,7 @@
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("\tKilépés");
                     szam = 0;
-                } 
+                }
                 else if (szam == 2 && billentyu.Key == ConsoleKey.UpArrow)
                 {
                     Console.Clear();
@@ -76,7 +73,6 @@
                 }
 
             } while (billentyu.Key != ConsoleKey.Enter);
-
             if (billentyu.Key == ConsoleKey.Enter && szam == 0)
             {
                 Console.WriteLine("Jatek");
@@ -112,15 +108,37 @@
                                 Console.WriteLine("Hát jó. :(");
                                 System.Threading.Thread.Sleep(500);
                             }
+                            else if (billentyu.Key == ConsoleKey.Escape)
+                            {
+                                Console.Clear();
+                                Menu();
+                            }
+                        }
+                        else if (billentyu.Key == ConsoleKey.Escape)
+                        {
+                            Console.Clear();
+                            Menu();
                         }
                     }
+                    else if (billentyu.Key == ConsoleKey.Escape)
+                    {   Console.Clear();
+                        Menu();
+                    }
+                }
+                else if (billentyu.Key == ConsoleKey.Escape)
+                {
+                    Console.Clear();
+                    Menu();
                 }
             }
+        }
+
+        static void Main(string[] args)
+        {
 
 
-
-
-
+            //á, é, í, ó, ö, ő, ú, ü, ű (nincs magyar kiosztasom)
+            Menu();
 
 
 
@@ -216,9 +234,9 @@
 
 
 
-
-
-
         }
+
+
     }
-}
+    }
+
