@@ -3,6 +3,48 @@
     internal class Program
         
     {
+
+        //static void Jatek()
+        //{
+        //    ConsoleKeyInfo billentyu;
+
+        //    Console.ForegroundColor = ConsoleColor.Black;
+        //    Console.BackgroundColor = ConsoleColor.White;
+        //    Console.Clear();
+        //    Console.SetCursorPosition(59, 25);
+        //    Console.WriteLine("|");
+        //    Console.SetCursorPosition(59, 26);
+        //    Console.WriteLine("|");
+
+        //    int x = 63;
+        //    int y = 25;
+        //    Console.SetCursorPosition(x, y);
+        //    Console.WriteLine("X");
+        //    do
+        //    {
+        //        billentyu = Console.ReadKey(true);
+
+        //        if (billentyu.Key != ConsoleKey.None)
+        //        {
+        //            if (billentyu.Key == ConsoleKey.RightArrow && x < 65)
+        //            {
+        //                Console.SetCursorPosition(x, y);
+        //                Console.WriteLine(" ");
+        //                x++;
+        //                Console.SetCursorPosition(x, y);
+        //                Console.WriteLine("X");
+        //            }
+        //            if (billentyu.Key == ConsoleKey.LeftArrow && x > 60)
+        //            {
+        //                Console.SetCursorPosition(x, y);
+        //                Console.WriteLine(" ");
+        //                x--;
+        //                Console.SetCursorPosition(x, y);
+        //                Console.WriteLine("X");
+        //            }
+        //        }
+        //    } while (billentyu.Key != ConsoleKey.Escape);
+        //}
         static void Jatek()
         {
             ConsoleKeyInfo billentyu;
@@ -10,10 +52,14 @@
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.White;
             Console.Clear();
-            Console.SetCursorPosition(59, 25);
-            Console.WriteLine("|");
-            Console.SetCursorPosition(59, 26);
-            Console.WriteLine("|");
+            for (int i = Console.BufferHeight-1; i > 0; i--) //ez kellett mert nem futott le a monitorom miatt
+            {
+                Console.SetCursorPosition(59, i);
+                Console.WriteLine("||");
+                Console.SetCursorPosition(66, i);
+                Console.WriteLine("||");
+            }
+
 
             int x = 63;
             int y = 25;
@@ -225,6 +271,7 @@
         static void Main()
         {
             //á, é, í, ó, ö, ő, ú, ü, ű (nincs magyar kiosztasom)
+            Console.BackgroundColor = ConsoleColor.Black;
             Menu();
 
 
