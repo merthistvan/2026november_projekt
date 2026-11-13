@@ -1,13 +1,55 @@
 ﻿namespace projekt
 {
     internal class Program
+        
     {
+        static void Jatek()
+        {
+            ConsoleKeyInfo billentyu;
+            
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
+            Console.SetCursorPosition(59, 25);
+            Console.WriteLine("|");
+            Console.SetCursorPosition(59, 26);
+            Console.WriteLine("|");
+
+            int x = 63;
+            int y = 25;
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine("X");
+            do
+            {
+                billentyu = Console.ReadKey(true);
+
+                if (billentyu.Key != ConsoleKey.None)
+                {
+                    if (billentyu.Key == ConsoleKey.RightArrow && x < 65)
+                    {
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine(" ");
+                        x++;
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine("X");
+                    }
+                    if (billentyu.Key == ConsoleKey.LeftArrow && x > 60)
+                    {
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine(" ");
+                        x--;
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine("X");
+                    }
+                }
+            } while (billentyu.Key != ConsoleKey.Escape);
+        }
         static void Menu()//menu, interaktiv enterrel lepsz be fel le nyilakkal
         {
             //menu, interaktiv enterrel lepsz be fel le nyilakkal
             Console.ForegroundColor = ConsoleColor.White;
-
-            Console.WriteLine(" _   _            _       _                          _            \r\n| \\ | | _____   _| |_ ___| | ___ _ __     __ _ _   _| |_ ___  ___ \r\n|  \\| |/ _ \\ \\ / / __/ _ \\ |/ _ \\ '_ \\   / _` | | | | __/ _ \\/ __|\r\n| |\\  |  __/\\ V /| ||  __/ |  __/ | | | | (_| | |_| | || (_) \\__ \\\r\n|_|_\\_|\\___| \\_/  \\__\\___|_|\\___|_| |_|  \\__,_|\\__,_|\\__\\___/|___/\r\n  (_) __ _| |_ ___| | __                                          \r\n  | |/ _` | __/ _ \\ |/ /                                          \r\n  | | (_| | ||  __/   <                                           \r\n _/ |\\__,_|\\__\\___|_|\\_\\                                          \r\n|__/                                                              ");
+            const string logo = " _   _            _       _                          _            \r\n| \\ | | _____   _| |_ ___| | ___ _ __     __ _ _   _| |_ ___  ___ \r\n|  \\| |/ _ \\ \\ / / __/ _ \\ |/ _ \\ '_ \\   / _` | | | | __/ _ \\/ __|\r\n| |\\  |  __/\\ V /| ||  __/ |  __/ | | | | (_| | |_| | || (_) \\__ \\\r\n|_|_\\_|\\___| \\_/  \\__\\___|_|\\___|_| |_|  \\__,_|\\__,_|\\__\\___/|___/\r\n  (_) __ _| |_ ___| | __                                          \r\n  | |/ _` | __/ _ \\ |/ /                                          \r\n  | | (_| | ||  __/   <                                           \r\n _/ |\\__,_|\\__\\___|_|\\_\\                                          \r\n|__/                                                              ";
+            Console.WriteLine(logo);
             System.Threading.Thread.Sleep(1000); //késleltetés
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("\tJáték");
@@ -25,7 +67,7 @@
                 if (szam == 0 && billentyu.Key == ConsoleKey.DownArrow)
                 {
                     Console.Clear();
-                    Console.WriteLine(" _   _            _       _                          _            \r\n| \\ | | _____   _| |_ ___| | ___ _ __     __ _ _   _| |_ ___  ___ \r\n|  \\| |/ _ \\ \\ / / __/ _ \\ |/ _ \\ '_ \\   / _` | | | | __/ _ \\/ __|\r\n| |\\  |  __/\\ V /| ||  __/ |  __/ | | | | (_| | |_| | || (_) \\__ \\\r\n|_|_\\_|\\___| \\_/  \\__\\___|_|\\___|_| |_|  \\__,_|\\__,_|\\__\\___/|___/\r\n  (_) __ _| |_ ___| | __                                          \r\n  | |/ _` | __/ _ \\ |/ /                                          \r\n  | | (_| | ||  __/   <                                           \r\n _/ |\\__,_|\\__\\___|_|\\_\\                                          \r\n|__/                                                              ");
+                    Console.WriteLine(logo);
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("\tJáték");
                     Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -37,7 +79,7 @@
                 else if (szam == 1 && billentyu.Key == ConsoleKey.DownArrow)
                 {
                     Console.Clear();
-                    Console.WriteLine(" _   _            _       _                          _            \r\n| \\ | | _____   _| |_ ___| | ___ _ __     __ _ _   _| |_ ___  ___ \r\n|  \\| |/ _ \\ \\ / / __/ _ \\ |/ _ \\ '_ \\   / _` | | | | __/ _ \\/ __|\r\n| |\\  |  __/\\ V /| ||  __/ |  __/ | | | | (_| | |_| | || (_) \\__ \\\r\n|_|_\\_|\\___| \\_/  \\__\\___|_|\\___|_| |_|  \\__,_|\\__,_|\\__\\___/|___/\r\n  (_) __ _| |_ ___| | __                                          \r\n  | |/ _` | __/ _ \\ |/ /                                          \r\n  | | (_| | ||  __/   <                                           \r\n _/ |\\__,_|\\__\\___|_|\\_\\                                          \r\n|__/                                                              ");
+                    Console.WriteLine(logo);
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("\tJáték");
                     Console.ForegroundColor = ConsoleColor.White;
@@ -49,7 +91,7 @@
                 else if (szam == 1 && billentyu.Key == ConsoleKey.UpArrow)
                 {
                     Console.Clear();
-                    Console.WriteLine(" _   _            _       _                          _            \r\n| \\ | | _____   _| |_ ___| | ___ _ __     __ _ _   _| |_ ___  ___ \r\n|  \\| |/ _ \\ \\ / / __/ _ \\ |/ _ \\ '_ \\   / _` | | | | __/ _ \\/ __|\r\n| |\\  |  __/\\ V /| ||  __/ |  __/ | | | | (_| | |_| | || (_) \\__ \\\r\n|_|_\\_|\\___| \\_/  \\__\\___|_|\\___|_| |_|  \\__,_|\\__,_|\\__\\___/|___/\r\n  (_) __ _| |_ ___| | __                                          \r\n  | |/ _` | __/ _ \\ |/ /                                          \r\n  | | (_| | ||  __/   <                                           \r\n _/ |\\__,_|\\__\\___|_|\\_\\                                          \r\n|__/                                                              ");
+                    Console.WriteLine(logo);
                     Console.ForegroundColor = ConsoleColor.DarkBlue;
                     Console.WriteLine("\tJáték");
                     Console.ForegroundColor = ConsoleColor.White;
@@ -61,8 +103,7 @@
                 else if (szam == 2 && billentyu.Key == ConsoleKey.UpArrow)
                 {
                     Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine(" _   _            _       _                          _            \r\n| \\ | | _____   _| |_ ___| | ___ _ __     __ _ _   _| |_ ___  ___ \r\n|  \\| |/ _ \\ \\ / / __/ _ \\ |/ _ \\ '_ \\   / _` | | | | __/ _ \\/ __|\r\n| |\\  |  __/\\ V /| ||  __/ |  __/ | | | | (_| | |_| | || (_) \\__ \\\r\n|_|_\\_|\\___| \\_/  \\__\\___|_|\\___|_| |_|  \\__,_|\\__,_|\\__\\___/|___/\r\n  (_) __ _| |_ ___| | __                                          \r\n  | |/ _` | __/ _ \\ |/ /                                          \r\n  | | (_| | ||  __/   <                                           \r\n _/ |\\__,_|\\__\\___|_|\\_\\                                          \r\n|__/                                                              ");
+                    Console.WriteLine(logo);
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("\tJáték");
                     Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -75,7 +116,7 @@
             } while (billentyu.Key != ConsoleKey.Enter);
             if (billentyu.Key == ConsoleKey.Enter && szam == 0)
             {
-                return;
+                Jatek();
             }
             if (billentyu.Key == ConsoleKey.Enter && szam == 1)
             {
@@ -181,77 +222,13 @@
 
 
 
-        static void Main(string[] args)
+        static void Main()
         {
             //á, é, í, ó, ö, ő, ú, ü, ű (nincs magyar kiosztasom)
             Menu();
-            ConsoleKeyInfo billentyu;
 
-            billentyu = Console.ReadKey();
+
             
-
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.Clear();
-            Console.SetCursorPosition(19, 25);
-            Console.WriteLine("|");
-
-            int x = 20;
-            int y = 20;
-            Console.SetCursorPosition(x, y);
-            Console.WriteLine("X");
-            do
-            {
-                billentyu = Console.ReadKey(true);
-                
-                if (billentyu.Key != ConsoleKey.None)
-                {
-                    if (billentyu.Key == ConsoleKey.RightArrow)
-                    {
-                        Console.SetCursorPosition(x, y);
-                        Console.WriteLine(" ");
-                        if (x!=20 && x!=25)
-                        {
-                            x++;
-                        }
-                        Console.SetCursorPosition(x, y);
-                        Console.WriteLine("X");
-                    }
-                    if (billentyu.Key == ConsoleKey.LeftArrow)
-                    {
-                        Console.SetCursorPosition(x, y);
-                        Console.WriteLine(" ");
-                        if (x >= 20 && x <= 25)
-                        {
-                            x--;
-                        }
-                        Console.SetCursorPosition(x, y);
-                        Console.WriteLine("X");
-                    }
-                    if (billentyu.Key == ConsoleKey.DownArrow)
-                    {
-                        Console.SetCursorPosition(x, y);
-                        Console.WriteLine(" ");
-                        if (y >= 20 && y <= 25)
-                        {
-                            y++;
-                        }
-                        Console.SetCursorPosition(x, y);
-                        Console.WriteLine("X");
-                    }
-                    if (billentyu.Key == ConsoleKey.UpArrow)
-                    {
-                        Console.SetCursorPosition(x, y);
-                        Console.WriteLine(" ");
-                        if (y >= 20 && y <= 25)
-                        {
-                            y--;
-                        }   
-                        Console.SetCursorPosition(x, y);
-                        Console.WriteLine("X");
-                    }
-                }
-            } while (billentyu.Key != ConsoleKey.Escape);
 
 
 
