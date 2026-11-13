@@ -16,8 +16,8 @@
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\tKilépés");
 
-            int szam = 0;
             ConsoleKeyInfo billentyu;
+            int szam = 0;
 
             do
             {
@@ -75,7 +75,7 @@
             } while (billentyu.Key != ConsoleKey.Enter);
             if (billentyu.Key == ConsoleKey.Enter && szam == 0)
             {
-                Console.WriteLine("Jatek");
+                return;
             }
             if (billentyu.Key == ConsoleKey.Enter && szam == 1)
             {
@@ -83,62 +83,175 @@
             }
             if (billentyu.Key == ConsoleKey.Enter && szam == 2)
             {
+                //do
+                //{
+
+
+                //Console.Clear();
+                //Console.ForegroundColor = ConsoleColor.Cyan;
+                //Console.WriteLine("Biztos hogy ki akarsz lépni? (Enter/ESC)");
+                //billentyu = Console.ReadKey(true);
+                //if (billentyu.Key == ConsoleKey.Enter)
+                //{
+                //    Console.ForegroundColor = ConsoleColor.Green;
+                //    Console.WriteLine("De biztos vagy benne?? (Enter/ESC)");
+                //    billentyu = Console.ReadKey(true);
+                //    if (billentyu.Key == ConsoleKey.Enter)
+                //    {
+                //        Console.ForegroundColor = ConsoleColor.Yellow;
+                //        Console.WriteLine("De utána nem fogsz tudni visszalépni! Biztos ki akarsz lépni??? (Enter/ESC)");
+                //        billentyu = Console.ReadKey(true);
+                //        if (billentyu.Key == ConsoleKey.Enter)
+                //        {
+                //            Console.ForegroundColor = ConsoleColor.Red;
+                //            Console.WriteLine("Utolsó esély!!! (Enter/ESC)");
+                //            billentyu = Console.ReadKey(true);
+                //            if (billentyu.Key == ConsoleKey.Enter)
+                //            {
+                //                Console.ForegroundColor = ConsoleColor.Gray;
+                //                Console.WriteLine("Hát jó. :(");
+                //                System.Threading.Thread.Sleep(500);
+                //                    break;
+                //            }
+                //            else if (billentyu.Key == ConsoleKey.Escape)
+                //            {
+                //                Console.Clear();
+                //                Menu();
+
+                //            }
+                //        }
+                //        else if (billentyu.Key == ConsoleKey.Escape)
+                //        {
+                //            Console.Clear();
+                //            Menu();
+                //        }
+                //    }
+                //    else if (billentyu.Key == ConsoleKey.Escape)
+                //    {   Console.Clear();
+                //        Menu();
+                //    }
+                //}
+                //else if (billentyu.Key == ConsoleKey.Escape)
+                //{
+                //    Console.Clear();
+                //    Menu();
+                //}
+                //} while (billentyu.Key!=ConsoleKey.Enter && billentyu.Key!=ConsoleKey.Escape); //ez igy nem jo mert akarhol nyounk valami mast az enteren vagy a escen kivul akkor az elejere visszalep ahelyett hogy nem tortenne semmi
                 Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("Biztos hogy ki akarsz lépni? (Enter/ESC)");
-                billentyu = Console.ReadKey(true);
-                if (billentyu.Key == ConsoleKey.Enter)
+                ConsoleColor[] szinek =
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("De biztos vagy benne?? (Enter/ESC)");
-                    billentyu = Console.ReadKey(true);
-                    if (billentyu.Key == ConsoleKey.Enter)
+                    ConsoleColor.Cyan,
+                    ConsoleColor.Green,
+                    ConsoleColor.Yellow,
+                    ConsoleColor.Red
+                };
+                string[] uzenetek =
+                {
+                    "Biztos hogy ki akarsz lépni? (Enter/ESC)",
+                    "De biztos vagy benne?? (Enter/ESC)",
+                    "De utána nem fogsz tudni visszalépni! Biztos ki akarsz lépni??? (Enter/ESC)",
+                    "Utolsó esély!!! (Enter/ESC)"
+                };
+
+                for (int i = 0; i < uzenetek.Length; i++)
+                {
+                    Console.ForegroundColor = szinek[i];
+                    Console.WriteLine(uzenetek[i]);
+                    while (true)
                     {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("De utána nem fogsz tudni visszalépni! Biztos ki akarsz lépni??? (Enter/ESC)");
                         billentyu = Console.ReadKey(true);
                         if (billentyu.Key == ConsoleKey.Enter)
                         {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Utolsó esély!!! (Enter/ESC)");
-                            billentyu = Console.ReadKey(true);
-                            if (billentyu.Key == ConsoleKey.Enter)
-                            {
-                                Console.ForegroundColor = ConsoleColor.Gray;
-                                Console.WriteLine("Hát jó. :(");
-                                System.Threading.Thread.Sleep(500);
-                            }
-                            else if (billentyu.Key == ConsoleKey.Escape)
-                            {
-                                Console.Clear();
-                                Menu();
-                            }
+                            break;
                         }
-                        else if (billentyu.Key == ConsoleKey.Escape)
+                        if (billentyu.Key == ConsoleKey.Escape)
                         {
                             Console.Clear();
                             Menu();
+                            break;
                         }
                     }
-                    else if (billentyu.Key == ConsoleKey.Escape)
-                    {   Console.Clear();
-                        Menu();
-                    }
                 }
-                else if (billentyu.Key == ConsoleKey.Escape)
-                {
-                    Console.Clear();
-                    Menu();
-                }
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("Hát jó. :(");
+                System.Threading.Thread.Sleep(500);   
+                //zsibbad az agyam ezutan
             }
         }
 
+
+
         static void Main(string[] args)
         {
-
-
             //á, é, í, ó, ö, ő, ú, ü, ű (nincs magyar kiosztasom)
             Menu();
+            ConsoleKeyInfo billentyu;
+
+            billentyu = Console.ReadKey();
+            
+
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
+            Console.SetCursorPosition(19, 25);
+            Console.WriteLine("|");
+
+            int x = 20;
+            int y = 20;
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine("X");
+            do
+            {
+                billentyu = Console.ReadKey(true);
+                
+                if (billentyu.Key != ConsoleKey.None)
+                {
+                    if (billentyu.Key == ConsoleKey.RightArrow)
+                    {
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine(" ");
+                        if (x!=20 && x!=25)
+                        {
+                            x++;
+                        }
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine("X");
+                    }
+                    if (billentyu.Key == ConsoleKey.LeftArrow)
+                    {
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine(" ");
+                        if (x >= 20 && x <= 25)
+                        {
+                            x--;
+                        }
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine("X");
+                    }
+                    if (billentyu.Key == ConsoleKey.DownArrow)
+                    {
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine(" ");
+                        if (y >= 20 && y <= 25)
+                        {
+                            y++;
+                        }
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine("X");
+                    }
+                    if (billentyu.Key == ConsoleKey.UpArrow)
+                    {
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine(" ");
+                        if (y >= 20 && y <= 25)
+                        {
+                            y--;
+                        }   
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine("X");
+                    }
+                }
+            } while (billentyu.Key != ConsoleKey.Escape);
 
 
 
