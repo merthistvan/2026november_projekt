@@ -1,8 +1,33 @@
 ﻿namespace projekt
 {
     internal class Program
-        
     {
+        //static void Akadaly()
+        //{
+
+        //    Random vel = new Random(); //general egy szamomt 1-5 ig es amelyik lesz azon a helyen nem lesz akadaly
+        //    int r = vel.Next(1, 6);
+        //    int j = 5;
+
+        //    do
+        //    {
+        //        for (int i = 61; i <= 65; i++) //ez az akadaly legeneralasa
+        //        {
+        //            Console.SetCursorPosition(i, j);
+        //            Console.WriteLine("#");
+        //            Console.SetCursorPosition(60 + r, j);
+        //            Console.WriteLine(" ");
+        //        }
+        //        System.Threading.Thread.Sleep(500);
+        //        for (int i = 61; i <= 65; i++)
+        //        {
+        //            Console.SetCursorPosition(i, j);
+        //            Console.WriteLine(" ");
+        //        }
+        //        j++;
+        //    } while (j <= 29); //addig megy amig meg nem halsz (azt nem tudom hogyan kell megcsinalni btw)
+        //}
+
 
         //static void Jatek()
         //{
@@ -45,14 +70,61 @@
         //        }
         //    } while (billentyu.Key != ConsoleKey.Escape);
         //}
+        //static void Jatek()
+        //{
+        //    ConsoleKeyInfo billentyu;
+
+        //    Console.ForegroundColor = ConsoleColor.Black;
+        //    Console.BackgroundColor = ConsoleColor.White;
+        //    Console.Clear();
+        //    for (int i = Console.BufferHeight-1; i > 0; i--) //ez kellett mert nem futott le a monitorom miatt
+        //    {
+        //        Console.SetCursorPosition(59, i);
+        //        Console.WriteLine("||");
+        //        Console.SetCursorPosition(66, i);
+        //        Console.WriteLine("||");
+        //    }
+
+
+        //    int x = 63;
+        //    int y = 25;
+        //    Console.SetCursorPosition(x, y);
+        //    Console.WriteLine("X");
+        //    do
+        //    {
+        //        billentyu = Console.ReadKey(true);
+
+        //        if (billentyu.Key != ConsoleKey.None)
+        //        {
+        //            if (billentyu.Key == ConsoleKey.RightArrow && x < 65)
+        //            {
+        //                Console.SetCursorPosition(x, y);
+        //                Console.WriteLine(" ");
+        //                x++;
+        //                Console.SetCursorPosition(x, y);
+        //                Console.WriteLine("X");
+        //            }
+        //            if (billentyu.Key == ConsoleKey.LeftArrow && x > 61)
+        //            {
+        //                Console.SetCursorPosition(x, y);
+        //                Console.WriteLine(" ");
+        //                x--;
+        //                Console.SetCursorPosition(x, y);
+        //                Console.WriteLine("X");
+        //            }
+        //        }
+
+        //    } while (billentyu.Key != ConsoleKey.Escape);
+        //}
         static void Jatek()
         {
             ConsoleKeyInfo billentyu;
-            
+            Random vel = new Random();
+
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.White;
             Console.Clear();
-            for (int i = Console.BufferHeight-1; i > 0; i--) //ez kellett mert nem futott le a monitorom miatt
+            for (int i = Console.BufferHeight - 1; i > 0; i--)
             {
                 Console.SetCursorPosition(59, i);
                 Console.WriteLine("||");
@@ -63,32 +135,83 @@
 
             int x = 63;
             int y = 25;
-            Console.SetCursorPosition(x, y);
-            Console.WriteLine("X");
+            int r = vel.Next(1, 6);   // ezen a helyen nem lesz akadály
+            int j = 5;                // az akadály sora
+            int szamlalo = 0;
+            bool elo = true;
+
             do
             {
-                billentyu = Console.ReadKey(true);
+                // 1) billentyű: csak akkor olvasunk, ha van lenyomva valami
+                if (Console.KeyAvailable)
 
-                if (billentyu.Key != ConsoleKey.None)
                 {
+                    billentyu = Console.ReadKey(true);
+
                     if (billentyu.Key == ConsoleKey.RightArrow && x < 65)
                     {
                         Console.SetCursorPosition(x, y);
-                        Console.WriteLine(" ");
+                        Console.Write(" ");
                         x++;
-                        Console.SetCursorPosition(x, y);
-                        Console.WriteLine("X");
+
+
                     }
-                    if (billentyu.Key == ConsoleKey.LeftArrow && x > 60)
+                    if (billentyu.Key == ConsoleKey.LeftArrow && x > 61)
                     {
                         Console.SetCursorPosition(x, y);
-                        Console.WriteLine(" ");
+                        Console.Write(" ");
                         x--;
-                        Console.SetCursorPosition(x, y);
-                        Console.WriteLine("X");
+                    }
+                    if (billentyu.Key == ConsoleKey.Escape)
+                    {
+                        elo = false;
                     }
                 }
-            } while (billentyu.Key != ConsoleKey.Escape);
+
+                // 2) akadály: minden 10. körben lép egyet (10 * 50 ms = 500 ms)
+                szamlalo++;
+                if (szamlalo == 10)
+                {
+                    szamlalo = 0;
+
+                    for (int i = 61; i <= 65; i++)      // régi sor törlése
+                    {
+                        Console.SetCursorPosition(i, j);
+                        Console.Write(" ");
+                    }
+
+                    j++;
+                    if (j > 29)                         // alulra ért: új akadály fent
+                    {
+                        j = 5;
+                        r = vel.Next(1, 6);
+                    }
+
+                    for (int i = 61; i <= 65; i++)      // új sor rajzolása
+                    {
+                        if (i != 60 + r)
+                        {
+                            Console.SetCursorPosition(i, j);
+                            Console.Write("#");
+                        }
+                    }
+
+                    // 3) ütközés: az akadály a játékos sorában van, és nem a lyukon áll
+                    if (j == y && x != 60 + r)
+                    {
+                        elo = false;
+                    }
+                }
+
+                
+                Console.SetCursorPosition(x, y);
+                Console.Write("X");
+
+                System.Threading.Thread.Sleep(50);
+            } while (elo);
+
+            Console.SetCursorPosition(55, 15);
+            Console.WriteLine("Vége a játéknak!");
         }
         static void Menu()//menu, interaktiv enterrel lepsz be fel le nyilakkal
         {
