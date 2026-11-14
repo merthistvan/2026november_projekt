@@ -1,4 +1,6 @@
-﻿namespace projekt
+﻿using System.Runtime.InteropServices;
+
+namespace projekt
 {
     internal class Program
     {
@@ -23,13 +25,26 @@
             int x = 63;/////jatekos pozi
             int y = 25;                 //jatekos pozi
             int r = vel.Next(1, 6);   // ezen a helyen nem lesz akadály
-            int j = 5;                // az akadaly melyik sorba van
+            int j = 0;                // az akadaly melyik sorba van
             int szamlalo = 0;
             bool jatek = true;
 //--------------------------------------------------
             int r2 = vel.Next(1, 6);   // ezen a helyen nem lesz akadály
             int j2 = 5;                // az akadaly melyik sorba van
-            int szamlalo2 = 2;
+            int szamlalo2 = 0;
+            //--------------------------------------------------
+            //--------------------------------------------------
+            int r3 = vel.Next(1, 6);   // ezen a helyen nem lesz akadály
+            int j3 = 10;                // az akadaly melyik sorba van
+            int szamlalo3 = 0;
+            //--------------------------------------------------
+            int r4 = vel.Next(1, 6);   // ezen a helyen nem lesz akadály
+            int j4 = 15;                // az akadaly melyik sorba van
+            int szamlalo4 = 0;
+            //--------------------------------------------------
+            int r5 = vel.Next(1, 6);   // ezen a helyen nem lesz akadály
+            int j5 = 20;                // az akadaly melyik sorba van
+            int szamlalo5 = 0;
 //--------------------------------------------------
             do
             {
@@ -58,13 +73,120 @@
                         jatek = false;
                     }
                 }
+                bool egyszer = false;
+                //-----------------------------------------------------
+                if (egyszer=true)
+                {
+
+                szamlalo5++;
+                if (szamlalo5 == 5)
+                {
+                    szamlalo5 = 0;
+
+                    for (int i = 61; i <= 65; i++)      // regit torli
+                    {
+                        Console.SetCursorPosition(i, j5);
+                        Console.Write(" ");
+                    }
+
+                    j5++;
+                    if (j5 > 29)                         // elolor
+                    {
+                        j5 = 5;
+                        r5 = vel.Next(1, 6); //hol ne legyen akadaly
+                    }
+
+                    for (int i = 61; i <= 65; i++)      // uj sort kiirja
+                    {
+                        if (i != 60 + r5)
+                        {
+                            Console.SetCursorPosition(i, j5);
+                            Console.Write("#");
+                        }
+                    }
+
+                    if (j5 == y && x != 60 + r5)//ha  a jatekos egy helyen van egy akadallyal akkor meghal |||| akadaly sora == jatekos sora es az oszlop nem egyenlo a kihagyott resszel
+                    {
+                        jatek = false;
+                    }
+                }
+                }
+
+                egyszer = true;
+//-----------------------------------------------------
+                szamlalo4++;
+                if (szamlalo4 == 5)
+                {
+                    szamlalo4 = 0;
+
+                    for (int i = 61; i <= 65; i++)      // regit torli
+                    {
+                        Console.SetCursorPosition(i, j4);
+                        Console.Write(" ");
+                    }
+
+                    j4++;
+                    if (j4 > 29)                         // elolor
+                    {
+                        j4 = 5;
+                        r4 = vel.Next(1, 6); //hol ne legyen akadaly
+                    }
+
+                    for (int i = 61; i <= 65; i++)      // uj sort kiirja
+                    {
+                        if (i != 60 + r4)
+                        {
+                            Console.SetCursorPosition(i, j4);
+                            Console.Write("#");
+                        }
+                    }
+
+                    if (j4 == y && x != 60 + r4)//ha  a jatekos egy helyen van egy akadallyal akkor meghal |||| akadaly sora == jatekos sora es az oszlop nem egyenlo a kihagyott resszel
+                    {
+                        jatek = false;
+                    }
+                }
+                egyszer = true;
+//-----------------------------------------------------
+                szamlalo3++;
+                if (szamlalo3 == 5)
+                {
+                    szamlalo3 = 0;
+
+                    for (int i = 61; i <= 65; i++)      // regit torli
+                    {
+                        Console.SetCursorPosition(i, j3);
+                        Console.Write(" ");
+                    }
+
+                    j3++;
+                    if (j3 > 29)                         // elolor
+                    {
+                        j3 = 5;
+                        r3 = vel.Next(1, 6); //hol ne legyen akadaly
+                    }
+
+                    for (int i = 61; i <= 65; i++)      // uj sort kiirja
+                    {
+                        if (i != 60 + r3)
+                        {
+                            Console.SetCursorPosition(i, j3);
+                            Console.Write("#");
+                        }
+                    }
+
+                    if (j3 == y && x != 60 + r3)//ha  a jatekos egy helyen van egy akadallyal akkor meghal |||| akadaly sora == jatekos sora es az oszlop nem egyenlo a kihagyott resszel
+                    {
+                        jatek = false;
+                    }
+                }
 
 //---------------------------------------------------------------------------------------
-                
+
                 szamlalo2++;
-                if (szamlalo2 == 8)
+                if (szamlalo2 == 5)
                 {
-                    szamlalo2 = 4;
+                    szamlalo2 = 0;
 
                     for (int i = 61; i <= 65; i++)      // regit torli
                     {
@@ -93,8 +215,7 @@
                         jatek = false;
                     }
                 }
-
-                //---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
                 //var egy kicsit
                 szamlalo++;
                 if (szamlalo == 5)
@@ -134,7 +255,7 @@
                 Console.Write("X");
 
                 System.Threading.Thread.Sleep(50);
-            } while (jatek);
+            } while (jatek==true);
             Console.Clear();
             Console.SetCursorPosition(55, 15);
             Console.WriteLine("Vége a játéknak!");
