@@ -4,9 +4,17 @@
 <p>Jelenlegi featureok
 <ul>
   <li>
-  menu
+    menu
   <li>
-    ennyi
+  <li>
+    minden
+  <li>
+  <li>
+    skinek
+  <li>
+  <li>
+    ki lehet lepni
+  <li>
   <ul>
 <p>
 
