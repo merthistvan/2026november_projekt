@@ -13,3 +13,5 @@ C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\
 C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\projekt.pdb
 C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\projekt.genruntimeconfig.cache
 C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\ref\projekt.dll
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\bin\Debug\net8.0\projekt.runtimeconfig.dev.json
+C:\Users\istvan\Documents\GitHub\2026november_projekt\projekt\projekt\obj\Debug\net8.0\projekt.csproj.Up2Date
